@@ -2,7 +2,7 @@
     package="abdollah.flutter_app">
 
    <application
-        android:label="flutter_app"
+        android:label="هوش قشمی"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

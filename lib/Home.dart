@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/main.dart';
+import 'package:google_fonts_arabic/fonts.dart';
 import 'package:tflite/tflite.dart';
 
 
@@ -95,12 +96,50 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(child: Scaffold(
-        body: SingleChildScrollView(
-          child: Container(
+        appBar: AppBar(
+          backgroundColor:Colors.grey[900],
+          leading: Container(
+              margin: EdgeInsets.symmetric(vertical: 11,horizontal: 11),
+            child: Image.asset('assets/icon.png'),
+              ),
+          actions: [
+            GestureDetector(
+              onTap: (){
+                showDialog(context: context, builder: (BuildContext context){
+                  return Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: AlertDialog(
+                      actions: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+
+                              Text('طراح و برنامه نویس :',style: TextStyle(color: Colors.grey,fontFamily: ArabicFonts.Lalezar,package: 'google_fonts_arabic')),
+                              Text('عبدالله چلاسی',style: TextStyle(color: Colors.grey[900],fontFamily: ArabicFonts.Lalezar,package: 'google_fonts_arabic')),
+
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                });
+              },
+              child: Container(
+                  margin: EdgeInsets.only(right: 11),
+                  child: Icon(Icons.account_box_outlined,color: Colors.white,size: 30,)),
+            ),
+          ],
+          centerTitle: true,
+          title: Text('هوش قشمی',style: TextStyle(color: Colors.grey,fontFamily: ArabicFonts.Lalezar,package: 'google_fonts_arabic'),),
+        ),
+        body:  Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage('assets/jarvis.jpg'),fit: BoxFit.cover)
+              image: DecorationImage(image: AssetImage('assets/jarvis.jpg'),fit: BoxFit.fill)
             ),
             child: Column(
               children: [
@@ -124,7 +163,8 @@ class _HomeState extends State<Home> {
                             ? Container(
                           height: 270,
                           width: 340,
-                          child: Icon(Icons.photo_camera_front,color: Colors.blue,size: 40,),
+
+                         child: Icon(Icons.photo_camera_front,color: Colors.white,size: 50,)
                         )
                             : AspectRatio(
                           aspectRatio: cameraController.value.aspectRatio,
@@ -150,7 +190,7 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-        ),
+
       )),
     );
   }

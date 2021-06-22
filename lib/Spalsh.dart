@@ -17,7 +17,7 @@ class _SpalshState extends State<Spalsh> {
       seconds: 3,
       navigateAfterSeconds: Home(),
       imageBackground: Image.asset('assets/back.jpg').image,
-      loaderColor: Colors.grey[900],
+      loaderColor: Colors.white,
       useLoader: true,
       loadingText: Text('در حال بارگزاری...',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
     );
